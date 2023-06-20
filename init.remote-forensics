@@ -26,4 +26,19 @@ sudo apt-get install sshfs
 echo "Configuring SSHFS (creating mount point)..."
 sudo mkdir /mnt/sshfs
 
+# Function to connect SSHFS
+connect_sshfs() {
+    echo "Connecting SSHFS..."
+    read -p "Enter the remote username: " username
+    read -p "Enter the remote host: " host
+    read -p "Enter the remote directory: " directory
+
+    echo "Mounting remote directory..."
+    sshfs "$username@$host:$directory" /mnt/sshfs
+    echo "SSHFS connection established!"
+}
+
+# Call the connect_sshfs function
+connect_sshfs
+
 echo "Installation and configuration completed!"
