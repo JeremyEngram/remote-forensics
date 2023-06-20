@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Install FTPD
+echo "Installing FTPD..."
+sudo apt-get install ftpd
+
+# Configure FTPD
+echo "Configuring FTPD..."
+# Add your specific configuration commands here
+
+# Install SSH
+echo "Installing SSH..."
+sudo apt-get install ssh
+
+# Configure SSH
+echo "Configuring SSH..."
+# Add your specific configuration commands here
+
+# Install SSHFS
+echo "Installing SSHFS..."
+sudo apt-get install sshfs
+
+# Configure SSHFS
+echo "Configuring SSHFS..."
+# Add your specific configuration commands here
+
+# Install SMB
+echo "Installing SMB..."
+sudo apt-get install samba
+
+# Configure SMB
+echo "Configuring SMB..."
+# Add your specific configuration commands here
+
+echo "Installation and configuration completed!"
