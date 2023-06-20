@@ -1,35 +1,29 @@
 #!/bin/bash
 
-# Install FTPD
-echo "Installing FTPD..."
-sudo apt-get install ftpd
+# Install FTPD (vsftpd)
+echo "Installing FTPD (vsftpd)..."
+sudo apt-get install vsftpd
 
-# Configure FTPD
-echo "Configuring FTPD..."
-# Add your specific configuration commands here
+# Configure FTPD (vsftpd)
+echo "Configuring FTPD (vsftpd)..."
+sudo sed -i 's/#write_enable=YES/write_enable=YES/' /etc/vsftpd.conf
+sudo systemctl restart vsftpd
 
-# Install SSH
-echo "Installing SSH..."
-sudo apt-get install ssh
+# Install SSHD (OpenSSH server)
+echo "Installing SSHD (OpenSSH server)..."
+sudo apt-get install openssh-server
 
-# Configure SSH
-echo "Configuring SSH..."
-# Add your specific configuration commands here
+# Configure SSHD (OpenSSH server)
+echo "Configuring SSHD (OpenSSH server)..."
+sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+sudo systemctl restart ssh
 
 # Install SSHFS
 echo "Installing SSHFS..."
 sudo apt-get install sshfs
 
-# Configure SSHFS
-echo "Configuring SSHFS..."
-# Add your specific configuration commands here
-
-# Install SMB
-echo "Installing SMB..."
-sudo apt-get install samba
-
-# Configure SMB
-echo "Configuring SMB..."
-# Add your specific configuration commands here
+# Configure SSHFS (create mount point)
+echo "Configuring SSHFS (creating mount point)..."
+sudo mkdir /mnt/sshfs
 
 echo "Installation and configuration completed!"
